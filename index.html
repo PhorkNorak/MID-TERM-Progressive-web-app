@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple PWA</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#2196F3">
-    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Simple PWA">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Note PWA</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#2196F3" />
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Simple PWA" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Simple PWA</h1>
-        <div class="app-icon">
-            <img src="./icons/icon-192x192.png" alt="App Icon" width="64" height="64">
-        </div>
-        <div id="notes-container">
-            <input type="text" id="note-input" placeholder="Enter a note">
-            <button onclick="addNote()">Add Note</button>
-        </div>
-        <ul id="notes-list"></ul>
-        <div id="offline-status"></div>
+      <h1>Simple PWA</h1>
+      <div class="app-icon">
+        <img
+          src="./icons/icon-192x192.png"
+          alt="App Icon"
+          width="64"
+          height="64"
+        />
+      </div>
+      <div id="notes-container">
+        <input type="text" id="note-input" placeholder="Enter a note" />
+        <button onclick="addNote()">Add Note</button>
+      </div>
+      <ul id="notes-list"></ul>
+      <div id="offline-status"></div>
     </div>
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>
