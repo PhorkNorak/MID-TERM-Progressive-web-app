@@ -1,9 +1,9 @@
 let notes = [];
 
-// Register Service Worker
+// Updated Service Worker Registration
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('./service-worker.js', { scope: './' })
             .then(registration => {
                 console.log('ServiceWorker registration successful');
             })
@@ -21,6 +21,7 @@ function updateOnlineStatus() {
     const status = document.getElementById('offline-status');
     if (navigator.onLine) {
         status.style.display = 'none';
+        status.classList.remove('offline');
     } else {
         status.style.display = 'block';
         status.textContent = 'You are currently offline';
@@ -33,7 +34,10 @@ function addNote() {
     const note = input.value.trim();
     
     if (note) {
-        notes.push(note);
+        notes.push({
+            text: note,
+            date: new Date().toLocaleString()
+        });
         saveNotes();
         renderNotes();
         input.value = '';
@@ -46,9 +50,21 @@ function renderNotes() {
     
     notes.forEach((note, index) => {
         const li = document.createElement('li');
-        li.textContent = note;
+        li.innerHTML = `
+            <div class="note-content">
+                <span class="note-text">${note.text}</span>
+                <span class="note-date">${note.date}</span>
+                <button onclick="deleteNote(${index})" class="delete-btn">Delete</button>
+            </div>
+        `;
         list.appendChild(li);
     });
+}
+
+function deleteNote(index) {
+    notes.splice(index, 1);
+    saveNotes();
+    renderNotes();
 }
 
 function saveNotes() {
@@ -63,5 +79,4 @@ function loadNotes() {
     }
 }
 
-// Load saved notes when the app starts
 loadNotes();

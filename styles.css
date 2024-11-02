@@ -44,14 +44,41 @@ button:hover {
     background-color: #1976D2;
 }
 
+.delete-btn {
+    background-color: #dc3545;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
 }
 
 li {
-    padding: 8px;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
+}
+
+.note-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note-text {
+    flex-grow: 1;
+}
+
+.note-date {
+    color: #666;
+    font-size: 0.8em;
+    margin: 0 10px;
 }
 
 #offline-status {
